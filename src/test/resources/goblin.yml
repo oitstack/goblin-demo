@@ -12,7 +12,7 @@ props:
   #DOCKER_HOST_LIST_ENDPOINT和GOBLIN_RUNTIME_DOCKER_HOST只需配置一个， 如果都配置， GOBLIN_RUNTIME_DOCKER_HOST优先级高
   #DOCKER_HOST_DISCOVER_STRATEGY: "io.github.oitstack.goblin.runtime.docker.host.DockerHostHttpDiscoverStrategy"
   #DOCKER_HOST_LIST_ENDPOINT: "http://goblin-test.com/docker_host_list"
-  GOBLIN_RUNTIME_DOCKER_HOST: "119.29.5.242:2375"
+  GOBLIN_RUNTIME_DOCKER_HOST: "localhost:2375"
 
   #本地docker客户端和docker host 交互是否要使用TLS加密(0不加密, 1加密)， 如果使用加密， 则需要配置客户端证书, 证书需要开发者自己生成。
   GOBLIN_RUNTIME_DOCKER_TLS_VERIFY: "0"

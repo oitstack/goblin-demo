@@ -17,10 +17,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  * @author yangguang
  * @date 2022/5/7
  */
-@UsingDataSet //该注解用于给数据库预置数据，在用例执行之前会读取用于定义的对应用例的数据并插入到数据库
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@SpringBootTest //springboot工程
 @GoblinTest //该注解用于启动Goblin运行环境
+@UsingDataSet //该注解用于给数据库预置数据，在用例执行之前会读取用于定义的对应用例的数据并插入到数据库. 放在类上作用在整个类的测试用例，放在方法上仅作用于当前方法。
 public class DemoTest {
 
     @Autowired

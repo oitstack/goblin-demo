@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.oitstack</groupId>
     <artifactId>goblin-demo</artifactId>
-    <version>1.0.0-debugs-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
             <groupId>io.github.oitstack</groupId>
-            <artifactId>goblin-spring-test-starter</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
+            <artifactId>goblin-all</artifactId>
+            <version>0.0.2</version>
         </dependency>
 
         <dependency>

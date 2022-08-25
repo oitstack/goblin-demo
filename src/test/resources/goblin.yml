@@ -1,0 +1,49 @@
+#被测试服务的依赖， 比如当前应用依赖mysql. 支持配置多个依赖。
+dockerImages:
+  - type: "MYSQL"    #docker镜像的类型， 由具体的容器实现类来定义，io.github.oitstack.goblin.container.mysql.GoblinMySQLContainer.CONTAINER_TYPE
+    imageVersion: "mysql:5.7"    #docker镜像的tag
+  - type: "MONGODB"
+    imageVersion: "mongo:4.4.7"
+  - type: "REDIS"
+    imageVersion: "redis:5.0.3"
+
+#Goblin负责把配置的属性注入的JVM的系统属性
+props:
+  #dockerHost的获取支持从本地获取或者远程http获取， 同时还支持用户自定义获取方式（需要实现DockerHostDiscoverStrategy，同时配置SPI）。
+  #通过配置DOCKER_HOST_DISCOVER_STRATEGY来决定选取哪种方式，默认是本地获取； 如果从远端获取，需要配置DOCKER_HOST_LIST_ENDPOINT
+  #DOCKER_HOST_LIST_ENDPOINT和GOBLIN_RUNTIME_DOCKER_HOST只需配置一个， 如果都配置， GOBLIN_RUNTIME_DOCKER_HOST优先级高
+  #DOCKER_HOST_DISCOVER_STRATEGY: "io.github.oitstack.goblin.runtime.docker.host.DockerHostHttpDiscoverStrategy"
+  GOBLIN_RUNTIME_DOCKER_HOST: "127.0.0.1:2375"
+
+  #本地docker客户端和docker host 交互是否要使用TLS加密(0不加密, 1加密)， 如果使用加密， 则需要配置客户端证书, 证书需要开发者自己生成。
+  GOBLIN_RUNTIME_DOCKER_TLS_VERIFY: "0"
+
+  #用户可以指定TLS证书的位置，然后把生成的证书放入对应位置
+  #GOBLIN_RUNTIME_DOCKER_CERT_PATH: "/cert"
+
+  #Goblin远程操作docker使用的是dockerjava工具包，以下几个参数也可以参考dockerjava配置方法，相比dockerjava增加了前缀GOBLIN_RUNTIME_
+#  GOBLIN_RUNTIME_registry.username: "username"
+#  GOBLIN_RUNTIME_registry.password: "passwd"
+  GOBLIN_RUNTIME_registry.url: "index.docker.io"
+
+  #默认的docker-hub域名
+  #GOBLIN_RUNTIME_default_docker_hub: ""
+
+  #是否允许服用已存在的docker容器
+  GOBLIN_RUNTIME_enable_reuse_container : "false"
+
+  #是否允许使用damocles容器
+  #enable_damocles: "false"
+
+  GOBLIN_RUNTIME_DAMOCLES_TAG: "oitstack/damocles:latest"
+
+
+#用户可根据实际情况添加需要的环境变量， goblin负责把该环境变量注入JVM
+env:
+  ENV_NAME1: "v1"
+  ENV_NAME2: "v2"
+
+
+mysql: #mysql配置
+  database: "topic" #实例数据库名
+  initScript: "init_mysql.sql" #schema初始化脚本

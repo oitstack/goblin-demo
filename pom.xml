@@ -12,30 +12,7 @@
         <dependency>
             <groupId>io.github.oitstack</groupId>
             <artifactId>goblin-all</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.oitstack</groupId>
-            <artifactId>goblin-container-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.oitstack</groupId>
-            <artifactId>goblin-container-mysql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.oitstack</groupId>
-            <artifactId>goblin-unit-db</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.oitstack</groupId>
-            <artifactId>goblin-unit-mysql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.oitstack</groupId>
-            <artifactId>goblin-container-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.oitstack</groupId>
-            <artifactId>goblin-container-mongodb</artifactId>
+            <version>0.0.6</version>
         </dependency>
         <!--    goblin end     -->
         <dependency>
@@ -87,17 +64,6 @@
             <version>1.6.6</version>
         </dependency>
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.github.oitstack</groupId>
-                <artifactId>goblin-bom</artifactId>
-                <version>0.0.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     <repositories>
         <repository>
             <id>ossrh</id>
